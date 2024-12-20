@@ -7,6 +7,6 @@ const Root = styled.div`
   gap: 16px;
 `;
 
-export const TodoItemsContainer = (props) => { 
+export const TodoItemsContainer = (props) => {
   return <Root>{props.children}</Root>
 }

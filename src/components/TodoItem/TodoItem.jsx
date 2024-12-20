@@ -1,39 +1,51 @@
 import React from 'react';
-import styled, { css } from "styled-components"
+import styled, {css} from "styled-components"
 import {TodoItemContainer} from './TodoItemContainer'
 import {TodoItemCheckbox} from './TodoItemCheckbox';
+import {useDeleteTodoItem} from '../../data/hooks/useData';
+import {PriorityInput} from './PriorityInput';
 
 const checkedCss = css`
-  color: #B5B5BA;
-  text-decoration: line-through;
+    color: #B5B5BA;
+    text-decoration: line-through;
 `
 
 const Title = styled.span(props => {
-  return `
+    return `
+    width: 60%;
     font-size: 15px;
+    overflow-wrap: break-word;
     ${props.checked ? checkedCss : ''};
   `;
 })
 
 const Delete = styled.span`
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  background-image: url(assets/images/png/delete.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 13px;
-  cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/assets/images/png/delete.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    cursor: pointer;
 `;
 
-export const TodoItem = ({title, checked}) => {
-  return (
-    <TodoItemContainer>
-      <TodoItemCheckbox checked={checked} />
-      <Title checked={checked}>
-        {title}
-      </Title>
-      <Delete />
-    </TodoItemContainer>
-  )
+export const TodoItem = ({title, checked, id, priority}) => {
+    const {mutate} = useDeleteTodoItem();
+    const onClickDeleteHandler = () => {
+        if (window.confirm(`Удалить задание с названием: "${title}"?`)) {
+            mutate({id});
+        }
+    }
+
+    return (
+        <TodoItemContainer>
+            <TodoItemCheckbox checked={checked} disabled={false} id={id} priority={priority}/>
+            <PriorityInput checked={checked} id={id} priority={priority}/>
+            <Title checked={checked}>
+                {title}
+            </Title>
+            <Delete onClick={onClickDeleteHandler}/>
+        </TodoItemContainer>
+    )
 }
