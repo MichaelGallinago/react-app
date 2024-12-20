@@ -56,6 +56,15 @@ export const NewTodoItem = () => {
                 onKeyDown={onInputKeyPressed}
                 placeholder='Напишите задание...'
                 disabled={isPending}
+                style={{
+                    minHeight: '32px',
+                    height: 'fit-content',
+                    border: '1px solid #cccccc',
+                    padding: '5px',
+                    font: 'inherit',
+                    boxSizing: 'border-box',
+                    resize: 'vertical'
+                }}
             />
         </TodoItemContainer>
     )
