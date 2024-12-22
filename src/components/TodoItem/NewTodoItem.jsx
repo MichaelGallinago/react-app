@@ -6,13 +6,14 @@ import {useSaveNewTodoItem} from '../../data/hooks/useData';
 import {PriorityInput} from './PriorityInput';
 
 
-const Input = styled.textarea`
-    flex-grow: 1;
-
+const Input = styled.input`
     &::placeholder {
         font-size: 15px;
         color: rgba(63, 63, 63, 0.6);
     }
+
+    border: 1px solid #cccccc;
+    padding: 5px;
 `
 
 export const NewTodoItem = () => {
@@ -42,6 +43,7 @@ export const NewTodoItem = () => {
             alert('Значение поля не должно быть пустым');
             return;
         }
+
         mutate({title: value, priority: priority});
     }
 
@@ -56,15 +58,6 @@ export const NewTodoItem = () => {
                 onKeyDown={onInputKeyPressed}
                 placeholder='Напишите задание...'
                 disabled={isPending}
-                style={{
-                    minHeight: '32px',
-                    height: 'fit-content',
-                    border: '1px solid #cccccc',
-                    padding: '5px',
-                    font: 'inherit',
-                    boxSizing: 'border-box',
-                    resize: 'vertical'
-                }}
             />
         </TodoItemContainer>
     )
