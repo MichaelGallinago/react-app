@@ -31,9 +31,9 @@ export const TodoItems = () => {
         if (!todoItems) return [];
 
         const filteredItems = todoItems.filter((todoItem) => {
-            const clearedItemTitle = todoItem.title.replace(/\s+/g, '').toLowerCase();
+            const clearedTodoItemTitle = todoItem.title.replace(/\s+/g, '').toLowerCase();
             const clearedSearchValue = searchValue.replace(/\s+/g, '').toLowerCase();
-            return clearedItemTitle.includes(clearedSearchValue) || clearedSearchValue.length < 1;
+            return clearedTodoItemTitle.indexOf(clearedSearchValue) !== -1 || clearedSearchValue.length < 3;
         });
 
         if (isSorted) {
