@@ -7,13 +7,14 @@ import {PrioritySelect} from './PrioritySelect';
 
 
 const Input = styled.input`
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 5px;
+    
     &::placeholder {
         font-size: 15px;
         color: rgba(63, 63, 63, 0.6);
     }
-
-    border: 1px solid #cccccc;
-    padding: 5px;
 `
 
 export const NewTodoItem = () => {
