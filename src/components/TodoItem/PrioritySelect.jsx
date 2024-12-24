@@ -24,14 +24,15 @@ export const PrioritySelect = ({id, checked, priority, setPriorityForNewTask}) =
         mutate({id, checked, priority: e.target.value});
     };
 
+    const prioritiesElements = priorities.map(num =>
+        <option key={num} value={num}>
+            {num}
+        </option>
+    )
+
     return (
         <Select value={priority} onChange={onChangeHandler} style={{ backgroundColor, textAlign: 'center' }} >
-            <>
-                {priorities.map(num =>
-                    <option key={num} value={num}>
-                        {num}
-                    </option>)}
-            </>
+            <>{prioritiesElements}</>
         </Select>
     );
 }
