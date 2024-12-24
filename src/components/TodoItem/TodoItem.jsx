@@ -3,7 +3,7 @@ import styled, {css} from "styled-components"
 import {TodoItemContainer} from './TodoItemContainer'
 import {TodoItemCheckbox} from './TodoItemCheckbox';
 import {useDeleteTodoItem} from '../../data/hooks/useData';
-import {PriorityInput} from './PriorityInput';
+import {PrioritySelect} from './PrioritySelect';
 
 const checkedCss = css`
     color: #B5B5BA;
@@ -41,7 +41,7 @@ export const TodoItem = ({title, checked, id, priority}) => {
     return (
         <TodoItemContainer>
             <TodoItemCheckbox checked={checked} disabled={false} id={id} priority={priority}/>
-            <PriorityInput checked={checked} id={id} priority={priority}/>
+            <PrioritySelect checked={checked} id={id} priority={priority}/>
             <Title checked={checked}>
                 {title}
             </Title>

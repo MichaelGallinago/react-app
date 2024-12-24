@@ -3,7 +3,7 @@ import {TodoItemContainer} from './TodoItemContainer';
 import {TodoItemCheckbox} from './TodoItemCheckbox';
 import styled from 'styled-components';
 import {useSaveNewTodoItem} from '../../data/hooks/useData';
-import {PriorityInput} from './PriorityInput';
+import {PrioritySelect} from './PrioritySelect';
 
 
 const Input = styled.input`
@@ -50,7 +50,7 @@ export const NewTodoItem = () => {
     return (
         <TodoItemContainer>
             <TodoItemCheckbox disabled={true}/>
-            <PriorityInput priority={priority} setPriorityForNewTask={setPriority}/>
+            <PrioritySelect priority={priority} setPriorityForNewTask={setPriority}/>
             <Input
                 ref={inputRef}
                 value={value}
