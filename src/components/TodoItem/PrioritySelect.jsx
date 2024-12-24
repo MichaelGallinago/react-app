@@ -8,6 +8,7 @@ const Select = styled.select`
     border-radius: 15%;
     height: 20px;
     background-color: #F6F6F6;
+    cursor: pointer;
 `
 
 export const PrioritySelect = ({id, checked, priority, setPriorityForNewTask}) => {
